@@ -27,7 +27,7 @@ import fs from "fs";
     const proxies = await getProxies();
     const { proxies: proxyList } = proxies;
 
-    const checkAgainst = "https://httpbin.org/ip";
+    const checkAgainst = "https://google.com";
 
     const checkedProxies = await Promise.all(
       proxyList.map(async (proxy) => {

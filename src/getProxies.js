@@ -5,6 +5,7 @@ const setProxies = async () => {
   const { data } = await axios.get(
     "https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all"
   );
+
   // create a file with the proxies
   const proxies = {
     createdAt: new Date().toISOString(),

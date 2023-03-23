@@ -4,7 +4,7 @@ import fs from "fs";
 const checkProxy = async (proxy, checkAgainst) => {
   proxy = proxy.split(":");
 
-  const [ip, port] = proxy;
+  const [ip, port, username, password] = proxy;
 
   if (!ip || !port) {
     return;
@@ -13,10 +13,14 @@ const checkProxy = async (proxy, checkAgainst) => {
   try {
     console.log(`Checking ${ip}:${port}...`);
     const { data } = await axios(checkAgainst, {
-      timeout: 3000,
+      timeout: 4000,
       proxy: {
         host: ip,
         port,
+        auth: {
+          username,
+          password,
+        },
       },
     });
     return {
