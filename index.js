@@ -1,3 +1,4 @@
+import path from "path";
 import { checkProxy } from "./src/checkProxies.js";
 import { getProxies } from "./src/getProxies.js";
 import fs from "fs";
@@ -53,5 +54,7 @@ import fs from "fs";
 
     const json = JSON.stringify(proxiesToWrite, null, 2);
     fs.writeFileSync("workingProxies.json", json, "utf8");
+    // delete the proxies.txt file
+    fs.unlinkSync("proxies.txt");
   }
 })();
