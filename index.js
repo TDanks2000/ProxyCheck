@@ -27,7 +27,7 @@ import fs from "fs";
     const proxies = await getProxies();
     const { proxies: proxyList } = proxies;
 
-    const checkAgainst = "https://google.com";
+    const checkAgainst = "https://aniworld.to";
 
     const checkedProxies = await Promise.all(
       proxyList.map(async (proxy) => {
@@ -49,6 +49,7 @@ import fs from "fs";
       proxies: workingProxies.map((proxy) => ({
         ip: proxy.ip,
         port: proxy?.port,
+        url: `http://${proxy.ip}:${proxy?.port}`,
       })),
     };
 
